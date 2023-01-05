@@ -231,10 +231,11 @@ void SteamIVRInput::handleAnalogAction(vr::InputAnalogActionData_t& state, const
 		else if (key == k_actionrightTriggerVallue)
 		{
 			unsigned char value = std::round(state.x * 255);
-			if (value > 127 && report.bRightTrigger <= 127)
+			if (value > 127 && rightTriggerValue <= 127)
 			{
-				rumbleController(1, 0.05, 10, 0.5);
+				rumbleController(0, 0.05, 10, 0.5);
 			}
+			rightTriggerValue = value;
 			report.bRightTrigger = value;
 		}
 		else if (key == k_actionleftStickPosition)
