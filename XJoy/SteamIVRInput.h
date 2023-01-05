@@ -31,7 +31,7 @@ constexpr auto k_actionleftStickPosition = "/actions/main/in/LeftStickPosition";
 constexpr auto k_actionrightStickPosition = "/actions/main/in/RightStickPosition";
 constexpr auto k_actionleftSkelly = "/actions/main/in/leftSkell";
 constexpr auto k_actionrightSkelly = "/actions/main/in/rightSkell";
-constexpr auto k_actiontoggleActive = "/actions/main/in/toggleActive";
+//constexpr auto k_actiontoggleActive = "/actions/main/in/toggleActive";
 
 
 enum VRInputType
@@ -117,12 +117,14 @@ private:
 		{k_actionleftStickPosition, {{},VRInputType::VRInputType_Analog}},
 		{k_actionrightStickPosition, {{},VRInputType::VRInputType_Analog}},
 		{k_actionleftSkelly, {{},VRInputType::VRInputType_Skelly}},
-		{k_actionrightSkelly, {{},VRInputType::VRInputType_Skelly}},
-		{k_actiontoggleActive, {{},VRInputType::VRInputType_Digital}} 
+		{k_actionrightSkelly, {{},VRInputType::VRInputType_Skelly}}
+		//,{k_actiontoggleActive, {{},VRInputType::VRInputType_Digital}} 
 	};
 
 	bool leftMiddleFingerPressed = false;
 	bool rightMiddleFingerPressed = false;
+	unsigned char leftTriggerValue = 0;
+	unsigned char rightTriggerValue = 0;
 	bool programActive = true;
 
 	vr::VRActionSetHandle_t m_mainSetHandler = {};

@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 Benjamin "Nefarius" Höglinger
+Copyright (c) 2017 Benjamin "Nefarius" Hï¿½glinger
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -69,7 +69,7 @@ extern "C" {
      *
      * \brief   A macro that defines success.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   _val_   The VIGEM_ERROR value.
@@ -132,7 +132,7 @@ extern "C" {
      *
      * \brief   Allocates an object representing a driver connection.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \return  A new driver connection object.
@@ -144,7 +144,7 @@ extern "C" {
      *
      * \brief   Frees up memory used by the driver connection object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -157,7 +157,7 @@ extern "C" {
      * \brief   Initializes the driver object and establishes a connection to the emulation bus
      *          driver. Returns an error if no compatible bus device has been found.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -174,7 +174,7 @@ extern "C" {
      *          still be connected will be destroyed automatically. Be aware, that allocated target
      *          objects won't be automatically freed, this has to be taken care of by the caller.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -182,23 +182,23 @@ extern "C" {
     VIGEM_API void vigem_disconnect(PVIGEM_CLIENT vigem);
 
     /**
-     * \fn  PVIGEM_TARGET vigem_target_x360_alloc(void);
+     * \fn  PVIGEM_TARGET vigem_target_x360_alloc(USHORT VID = 0x045E, USHORT PID = 0x028E);
      *
      * \brief   Allocates an object representing an Xbox 360 Controller device.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \return  A PVIGEM_TARGET representing an Xbox 360 Controller device.
      */
-    VIGEM_API PVIGEM_TARGET vigem_target_x360_alloc(void);
+    VIGEM_API PVIGEM_TARGET vigem_target_x360_alloc(USHORT VID = 0x045E, USHORT PID = 0x028E);
 
     /**
      * \fn  PVIGEM_TARGET vigem_target_ds4_alloc(void);
      *
      * \brief   Allocates an object representing a DualShock 4 Controller device.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \return  A PVIGEM_TARGET representing a DualShock 4 Controller device.
@@ -213,7 +213,7 @@ extern "C" {
      *          removed before this call, the device becomes orphaned until the owning process is
      *          terminated.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -227,7 +227,7 @@ extern "C" {
      *          event of a physical hardware device. This function blocks until the target device is
      *          in full operational mode.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -245,7 +245,7 @@ extern "C" {
      *          callback may be registered which gets called on error or if the target device has
      *          become fully operational.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -264,7 +264,7 @@ extern "C" {
      *          after this function is called. If this function is never called on target device
      *          objects, they will be removed from the bus when the owning process terminates.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -281,7 +281,7 @@ extern "C" {
      *          occur on the provided target device. This function fails if the provided target
      *          device isn't fully operational or in an erroneous state.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem           The driver connection object.
@@ -299,7 +299,7 @@ extern "C" {
      *          occur on the provided target device. This function fails if the provided target
      *          device isn't fully operational or in an erroneous state.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem           The driver connection object.
@@ -315,7 +315,7 @@ extern "C" {
      *
      * \brief   Removes a previously registered callback function from the provided target object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -327,7 +327,7 @@ extern "C" {
      *
      * \brief   Removes a previously registered callback function from the provided target object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -339,7 +339,7 @@ extern "C" {
      *
      * \brief   Overrides the default Vendor ID value with the provided one.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -352,7 +352,7 @@ extern "C" {
      *
      * \brief   Overrides the default Product ID value with the provided one.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -365,7 +365,7 @@ extern "C" {
      *
      * \brief   Returns the Vendor ID of the provided target device object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -379,7 +379,7 @@ extern "C" {
      *
      * \brief   Returns the Product ID of the provided target device object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -393,7 +393,7 @@ extern "C" {
      *
      * \brief   Sends a state report to the provided target device.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -409,7 +409,7 @@ extern "C" {
      *
      * \brief   Sends a state report to the provided target device.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   vigem   The driver connection object.
@@ -430,7 +430,7 @@ extern "C" {
      *          for its lifetime. This value becomes invalid once the target device is removed from
      *          the bus and may change on the next addition of the device.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -444,7 +444,7 @@ extern "C" {
      *
      * \brief   Returns the type of the provided target device object.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    28.08.2017
      *
      * \param   target  The target device object.
@@ -459,7 +459,7 @@ extern "C" {
      * \brief   Returns TRUE if the provided target device object is currently attached to the bus,
      *          FALSE otherwise.
      *
-     * \author  Benjamin "Nefarius" Höglinger
+     * \author  Benjamin "Nefarius" Hï¿½glinger
      * \date    30.08.2017
      *
      * \param   target  The target device object.

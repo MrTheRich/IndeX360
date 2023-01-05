@@ -5,6 +5,28 @@ In practice any VR controller can be mapped onto the individual 360 buttons usin
 
 
 
+## Dual mode
+
+This version has an option for a split dual controller, where each index controller simulates a xbox 360 gamempad. This is usefull for simple local multiplayer games where not many control buttons are needed. The program registers two seperate controllers for games that don't support a single controller for two players. Some ingame configuration might be needed to configure the buttons properly.
+
+The following buttons are available and mirrored for both controllers
+
+| Xbox Button    |
+|----------------|
+| B              |
+| A              |
+| Right Trigger  |
+| Right Shoulder |
+| Left Analog    |
+| Left Thumb     |
+| Start          |
+| Back           |
+| Guide          |
+
+To switch to dual mode, press [2] in the console window after starting the program.
+
+
+
 ## Note
 Bumpers are hardcoded to the to middle fingers, since those kind of inputs aren't directly available through SteamVR's input binding interface.
 

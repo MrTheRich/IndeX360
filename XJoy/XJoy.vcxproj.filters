@@ -51,7 +51,7 @@
     <ResourceCompile Include="XJoy.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="XJoy.ico" />
+    <Image Include="..\indeX360-icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="action_manifest.json">

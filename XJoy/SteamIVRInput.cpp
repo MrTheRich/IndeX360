@@ -19,12 +19,25 @@ void SteamIVRInput::Init(const bool initializeSteamVR)
 		if (initError != vr::VRInitError_None)
 		{
 			std::cout << "Error: steamvr init: " << initError << std::endl;
+			std::cout << "Start SteamVR before restarting this program" << std::endl;
+			std::cout << "press [Enter] to exit" << std::endl;
+			getchar();
+			exit(2);
 		}
 	}
 
 	// Set the action manifest. This should be in the executable directory.
 	// Defined by m_actionManifestPath.
-	auto error = vr::VRInput()->SetActionManifestPath((std::filesystem::absolute(m_actionManifestPath)).string().c_str());
+	vr::IVRInput* input = vr::VRInput();
+	if (!input)
+	{
+		std::cout << "Start SteamVR before restarting this program" << std::endl;
+		std::cout << "press [Enter] to exit" << std::endl;
+		getchar();
+		exit(2);
+	}
+
+	auto error = input->SetActionManifestPath((std::filesystem::absolute(m_actionManifestPath)).string().c_str());
 	if (error != vr::EVRInputError::VRInputError_None)
 	{
 		std::cout << "Error: setActionManifest: " << error << std::endl;
@@ -195,10 +208,10 @@ void SteamIVRInput::handleDigitalAction(vr::InputDigitalActionData_t& state, con
 			report.wButtons |= ControllerButtons::XUSB_GAMEPAD_GUIDE;
 		}
 	}
-	else if (state.bActive && key == k_actiontoggleActive)
+	/*else if (state.bActive && key == k_actiontoggleActive)
 	{
 		programActive = state.bState;	
-	}
+	}*/
 }
 
 void SteamIVRInput::handleAnalogAction(vr::InputAnalogActionData_t& state, const char* key, ControllerState& report)
@@ -208,11 +221,20 @@ void SteamIVRInput::handleAnalogAction(vr::InputAnalogActionData_t& state, const
 		if (key == k_actionleftTriggerValue)
 		{
 			unsigned char value = std::round(state.x * 255);
+			if (value > 127 && leftTriggerValue <= 127)
+			{
+				rumbleController(1, 0.05, 10, 0.5);
+			}
+			leftTriggerValue = value;
 			report.bLeftTrigger = value;
 		}
 		else if (key == k_actionrightTriggerVallue)
 		{
 			unsigned char value = std::round(state.x * 255);
+			if (value > 127 && report.bRightTrigger <= 127)
+			{
+				rumbleController(1, 0.05, 10, 0.5);
+			}
 			report.bRightTrigger = value;
 		}
 		else if (key == k_actionleftStickPosition)
@@ -244,7 +266,7 @@ void SteamIVRInput::handleSkellyAction(vr::InputSkeletalActionData_t& state, con
 			std::cout << "Error getting skeletal summaray. Error code: " << error << " culprit: " << key << std::endl;
 		}
 		auto middleFingerCurl = summData.flFingerCurl[vr::EVRFinger::VRFinger_Middle];
-		bool active = middleFingerCurl > 0.5;
+		bool active = middleFingerCurl > 0.99;
 		if (key == k_actionleftSkelly)
 		{
 			if (!leftMiddleFingerPressed && active)
