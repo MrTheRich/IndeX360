@@ -33,10 +33,16 @@ Bumpers are hardcoded to the to middle fingers, since those kind of inputs aren'
 ## Installation
 
 1. [Install the ViGEm Bus Driver](https://github.com/ViGEm/ViGEmBus/releases/tag/setup-v1.16.116) (install all requirements as well)
+2. Download and extract the latest release.
 
 ## Usage
 
-```
+1. Run SteamVR and make sure both controllers are active.
+2. Run IndeX360.exe.
+3. (optional) Enable dual mode by pressing 2 in console.
+4. (optional) Test or calibrate the controllers in Windows USB Game Controller control panel.
+4. Leave the console window open in the background while running the game.
+
 
 ## Customization
 
